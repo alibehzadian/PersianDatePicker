@@ -8,6 +8,8 @@ import java.util.Date;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -183,6 +185,64 @@ public class PersianDatePicker extends LinearLayout {
 		yearNumberPicker.setValue(year);
 		monthNumberPicker.setValue(month);
 		dayNumberPicker.setValue(day);
+	}
+
+	@Override
+	protected Parcelable onSaveInstanceState() {
+		// begin boilerplate code that allows parent classes to save state
+		Parcelable superState = super.onSaveInstanceState();
+		SavedState ss = new SavedState(superState);
+		// end
+
+		ss.datetime = this.getDisplayDate().getTime();
+		return ss;
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Parcelable state) {
+		// begin boilerplate code so parent classes can restore state
+		if (!(state instanceof SavedState)) {
+			super.onRestoreInstanceState(state);
+			return;
+		}
+
+		SavedState ss = (SavedState) state;
+		super.onRestoreInstanceState(ss.getSuperState());
+		// end
+
+		setDisplayDate(new Date(ss.datetime));
+	}
+
+	static class SavedState extends BaseSavedState {
+		long datetime;
+
+		SavedState(Parcelable superState) {
+			super(superState);
+		}
+
+		private SavedState(Parcel in) {
+			super(in);
+			this.datetime = in.readLong();
+		}
+
+		@Override
+		public void writeToParcel(Parcel out, int flags) {
+			super.writeToParcel(out, flags);
+			out.writeLong(this.datetime);
+		}
+
+		// required field that makes Parcelables from a Parcel
+		public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() {
+			@Override
+			public SavedState createFromParcel(Parcel in) {
+				return new SavedState(in);
+			}
+
+			@Override
+			public SavedState[] newArray(int size) {
+				return new SavedState[size];
+			}
+		};
 	}
 
 }
