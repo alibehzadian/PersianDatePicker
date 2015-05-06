@@ -18,6 +18,7 @@ import android.widget.NumberPicker;
 
 public class PersianDatePicker extends LinearLayout {
 
+	private OnDateChangedListener mListener;
 	private NumberPicker yearNumberPicker;
 	private NumberPicker monthNumberPicker;
 	private NumberPicker dayNumberPicker;
@@ -142,8 +143,38 @@ public class PersianDatePicker extends LinearLayout {
 					dayNumberPicker.setMaxValue(29);
 				}
 			}
+
+            if (mListener != null) {
+                mListener.onDateChanged(yearNumberPicker.getValue(), monthNumberPicker.getValue(),
+                        dayNumberPicker.getValue());
+            }
+
 		}
+
 	};
+
+    public void setOnDateChangedListener(OnDateChangedListener onDateChangedListener) {
+        mListener = onDateChangedListener;
+    }
+
+    /**
+     * The callback used to indicate the user changed the date.
+	 * A class that wants to be notified when the date of PersianDatePicker
+	 * changes should implement this interface and register itself as the
+	 * listener of date change events using the PersianDataPicker's
+	 * setOnDateChangedListener method.
+     */
+    public interface OnDateChangedListener {
+
+        /**
+         * Called upon a date change.
+         *
+         * @param newYear  The year that was set.
+         * @param newMonth The month that was set (1-12)
+         * @param newDay   The day of the month that was set.
+         */
+        void onDateChanged(int newYear, int newMonth, int newDay);
+    }
 
 	public Date getDisplayDate() {
 		PersianCalendar displayPersianDate = new PersianCalendar();
