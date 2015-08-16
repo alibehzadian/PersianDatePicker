@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 
 public class PersianDatePicker extends LinearLayout {
 
@@ -26,6 +27,9 @@ public class PersianDatePicker extends LinearLayout {
 	private int minYear;
 	private int maxYear;
 	private int yearRange;
+	
+	private boolean displayDescription;
+	private TextView descriptionTextView;
 
 	public PersianDatePicker(Context context) {
 		this(context, null, -1);
@@ -44,6 +48,7 @@ public class PersianDatePicker extends LinearLayout {
 		yearNumberPicker = (NumberPicker) view.findViewById(R.id.yearNumberPicker);
 		monthNumberPicker = (NumberPicker) view.findViewById(R.id.monthNumberPicker);
 		dayNumberPicker = (NumberPicker) view.findViewById(R.id.dayNumberPicker);
+		descriptionTextView = (TextView) view.findViewById(R.id.descriptionTextView);
 
 		PersianCalendar pCalendar = new PersianCalendar();
 
@@ -105,7 +110,15 @@ public class PersianDatePicker extends LinearLayout {
 		}
 		dayNumberPicker.setValue(selectedDay);
 		dayNumberPicker.setOnValueChangedListener(dateChangeListener);
-
+		
+		/*
+		 * displayDescription
+		 */
+		displayDescription = a.getBoolean(R.styleable.PersianDatePicker_displayDescription, false);
+		if( displayDescription ) {
+			descriptionTextView.setVisibility(View.VISIBLE);
+		}
+		
 		a.recycle();
 	}
 
@@ -143,7 +156,12 @@ public class PersianDatePicker extends LinearLayout {
 					dayNumberPicker.setMaxValue(29);
 				}
 			}
-
+			
+			// Set description
+			if( displayDescription ) {
+				descriptionTextView.setText(getDisplayPersianDate().getPersianLongDate());
+			}
+			
             if (mListener != null) {
                 mListener.onDateChanged(yearNumberPicker.getValue(), monthNumberPicker.getValue(),
                         dayNumberPicker.getValue());

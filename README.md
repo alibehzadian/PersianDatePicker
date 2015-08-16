@@ -36,6 +36,7 @@ Params:
  - selectedMonth: Selected month that PersianDatePicker starts with. Default is the current Hijri Shamsi (Jalali) year's month.
  - selectedDay: Selected day of month that PersianDatePicker starts with. Default is the current Hijri Shamsi (Jalali) month's day.
  - displayMonthNames: If set to true, months names are displayed, otherwise their number will be shown.
+ - displayDescription: If set to true, a TextView below datepicker will show the selected date with more details.
 
 Examples:
 ---

@@ -9,6 +9,7 @@
         <attr name="selectedDay" format="integer" />
         <attr name="displayMonthNames" format="boolean" />
         <attr name="yearRange" format="integer" />
+        <attr name="displayDescription" format="boolean" />
     </declare-styleable>
 
 </resources>
