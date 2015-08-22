@@ -8,24 +8,30 @@ Usage:
 
   - Add as an Android Library Project:
    - Add this line to root layout element:
-   <pre><code>xmlns:persianDatePicker="http://schemas.android.com/apk/res-auto"</code></pre>
+   ```xml
+xmlns:persianDatePicker="http://schemas.android.com/apk/res-auto"
+```
    - Add PersianDatePicker view:
-   <pre><code>&lt;ir.smartlab.persindatepicker.PersianDatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/&gt;</code></pre>
+   ```xml
+<ir.smartlab.persindatepicker.PersianDatePicker
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+```
   - Add Source and other required things to your Project:
    - Copy all sources to your source tree.
    - Copy /res/layout/sl_persian_date_picker.xml to your /res/layout folder.
    - Add this to your /res/values/attrs.xml:
-   <pre><code>&lt;declare-styleable name="PersianDatePicker"&gt;
-        &lt;attr name="minYear" format="integer" /&gt;
-        &lt;attr name="maxYear" format="integer" /&gt;
-        &lt;attr name="selectedYear" format="integer" /&gt;
-        &lt;attr name="selectedMonth" format="integer" /&gt;
-        &lt;attr name="selectedDay" format="integer" /&gt;
-        &lt;attr name="displayMonthNames" format="boolean" /&gt;
-        &lt;attr name="yearRange" format="integer" /&gt;
-    &lt;/declare-styleable&gt;</code></pre>
+   ```xml
+<declare-styleable name="PersianDatePicker">
+        <attr name="minYear" format="integer" />
+        <attr name="maxYear" format="integer" />
+        <attr name="selectedYear" format="integer" />
+        <attr name="selectedMonth" format="integer" />
+        <attr name="selectedDay" format="integer" />
+        <attr name="displayMonthNames" format="boolean" />
+        <attr name="yearRange" format="integer" />
+    </declare-styleable>
+    ```
 
 Params:
 ---
@@ -41,40 +47,54 @@ Params:
 Examples:
 ---
    - Display a PersianDatePicker with current Hijri Shamsi (Jalali) values:
-   <pre><code>&lt;ir.smartlab.persindatepicker.PersianDatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/&gt;</code></pre>
+```xml
+<ir.smartlab.persindatepicker.PersianDatePicker
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+```
    - Display a PersianDatePicker with selected Hijri Shamsi (Jalali) date:
-    <pre><code>&lt;ir.smartlab.persindatepicker.PersianDatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:selectedYear="1390"
-        app:selectedMonth="5"
-        app:selectedDay="15" /&gt;</code></pre>
+```xml
+<ir.smartlab.persindatepicker.PersianDatePicker
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:selectedYear="1390"
+    app:selectedMonth="5"
+    app:selectedDay="15" />
+```
    - Display a PersianDatePicker that shows month names:
-   <pre><code>&lt;ir.smartlab.persindatepicker.PersianDatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:displayMonthNames="true" /&gt;</code></pre>
+```xml
+<ir.smartlab.persindatepicker.PersianDatePicker
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:displayMonthNames="true" />
+```
    - Display a PersianDatePicker that shows years between 1350 and 1450:
-   <pre><code>&lt;ir.smartlab.persindatepicker.PersianDatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:maxYear="1450"
-        app:minYear="1350" /&gt;</code></pre>
+```xml
+<ir.smartlab.persindatepicker.PersianDatePicker
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:maxYear="1450"
+    app:minYear="1350" />
+```
 
 Java Examples:
 ---
 - You can set a java.util.Date object to PersianDatePpicker in java code:
-<pre><code>persianDatePicker.setDisplayDate(new Date());</code></pre>
+```java
+persianDatePicker.setDisplayDate(new Date());
+```
 - you can also set a ir.smartlab.persindatepicker.util.PersianCalendar object:
-<pre><code>PersianCalendar persianCalendar = new PersianCalendar();
+```java
+PersianCalendar persianCalendar = new PersianCalendar();
 persianCalendar.setPersianDate(1393, 6, 28);
-persianDatePicker.setDisplayPersianDate(persianCalendar);</code></pre>
+persianDatePicker.setDisplayPersianDate(persianCalendar);
+```
 - You can get displayed date in java.util.Date or ir.smartlab.persindatepicker.util.PersianCalendar:
-<pre><code>Date d = persianDatePicker.getDisplayDate();
+```java
+Date d = persianDatePicker.getDisplayDate();
 // OR
-PersianCalendar pCal = persianDatePicker.getDisplayPersianDate();</code></pre>
+PersianCalendar pCal = persianDatePicker.getDisplayPersianDate();
+```
 
 Leap Year:
 ---
