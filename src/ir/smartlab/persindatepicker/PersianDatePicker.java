@@ -106,6 +106,12 @@ public class PersianDatePicker extends LinearLayout {
 		dayNumberPicker.setValue(selectedDay);
 		dayNumberPicker.setOnValueChangedListener(dateChangeListener);
 
+        boolean showComponentSeparators = a.getBoolean(R.styleable.PersianDatePicker_showComponentSeparators, false);
+        if (showComponentSeparators) {
+            (view.findViewById(R.id.componentSeparator1)).setVisibility(View.VISIBLE);
+            (view.findViewById(R.id.componentSeparator2)).setVisibility(View.VISIBLE);
+        }
+
 		a.recycle();
 	}
 
