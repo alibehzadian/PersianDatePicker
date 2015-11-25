@@ -54,6 +54,17 @@ public class PersianDatePicker extends LinearLayout {
 
 		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.PersianDatePicker, 0, 0);
 
+		boolean disableSoftKeyboard = a.getBoolean(R.styleable.PersianDatePicker_disableSoftKeyboard, false);
+		if(disableSoftKeyboard)
+		{
+			yearNumberPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+			monthNumberPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+			dayNumberPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);  
+		}
+
+
+				
+				
 		yearRange = a.getInteger(R.styleable.PersianDatePicker_yearRange, 10);
 
 		/*
