@@ -21,8 +21,8 @@ xmlns:persianDatePicker="http://schemas.android.com/apk/res-auto"
    - Copy all sources to your source tree.
    - Copy /res/layout/sl_persian_date_picker.xml to your /res/layout folder.
    - Add this to your /res/values/attrs.xml:
-   ```xml
-<declare-styleable name="PersianDatePicker">
+```xml
+    <declare-styleable name="PersianDatePicker">
         <attr name="minYear" format="integer" />
         <attr name="maxYear" format="integer" />
         <attr name="selectedYear" format="integer" />
@@ -30,8 +30,10 @@ xmlns:persianDatePicker="http://schemas.android.com/apk/res-auto"
         <attr name="selectedDay" format="integer" />
         <attr name="displayMonthNames" format="boolean" />
         <attr name="yearRange" format="integer" />
+        <attr name="displayDescription" format="boolean" />
+		<attr name="disableSoftKeyboard" format="boolean" />
     </declare-styleable>
-    ```
+```
 
 Params:
 ---
@@ -102,7 +104,7 @@ In Hijri Shamsi some years are leap year, so the last month of year is 30 days (
 
 Credits:
 ---
-PersianDatepicker is heavily based on AOSP (https://source.android.com) and PersianCalendar (http://sourceforge.net/projects/persiancalendar).
+PersianDatepicker is heavily based on AOSP (https://source.android.com) and PersianCalendar (https://github.com/mortezaadi/persian-calendar).
 
 Version
 ----
