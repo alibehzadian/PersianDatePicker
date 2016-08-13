@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PersianDatePicker default:" />
+
+        <ir.smartlab.persiandatepicker.PersianDatePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PersianDatePicker with min year set to 1350:" />
+
+        <ir.smartlab.persiandatepicker.PersianDatePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:minYear="1350"
+            android:layout_gravity="center_horizontal"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PersianDatePicker with max year set to 1450:" />
+
+        <ir.smartlab.persiandatepicker.PersianDatePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:maxYear="1450"
+            android:layout_gravity="center_horizontal"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PersianDatePicker with selected date (not default):" />
+
+        <ir.smartlab.persiandatepicker.PersianDatePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:selectedYear="1395"
+            app:selectedMonth="6"
+            app:selectedDay="25"
+            android:layout_gravity="center_horizontal"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PersianDatePicker with year range set to 20 (default is 10):" />
+
+        <ir.smartlab.persiandatepicker.PersianDatePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:yearRange="20"
+            android:layout_gravity="center_horizontal"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PersianDatePicker showing selected date as a readable text:" />
+
+        <ir.smartlab.persiandatepicker.PersianDatePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:displayDescription="true"
+            android:layout_gravity="center_horizontal"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
