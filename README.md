@@ -87,7 +87,7 @@ To Do:
 
 Credits:
 ---
-PersianDatepicker is heavily based on AOSP (https://source.android.com) and PersianCalendar (http://sourceforge.net/projects/persiancalendar).
+PersianDatepicker is heavily based on AOSP (https://source.android.com) and persian-calendar (https://github.com/mortezaadi/persian-calendar).
 
 Version
 ----
