@@ -10,6 +10,7 @@
         <attr name="displayMonthNames" format="boolean" />
         <attr name="yearRange" format="integer" />
         <attr name="displayDescription" format="boolean" />
+        <attr name="timezone" format="string" />
     </declare-styleable>
 
 </resources>

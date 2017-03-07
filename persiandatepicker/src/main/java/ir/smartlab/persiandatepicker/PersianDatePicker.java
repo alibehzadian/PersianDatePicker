@@ -12,10 +12,12 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import java.util.Date;
+import java.util.TimeZone;
 
 import ir.smartlab.persiandatepicker.util.PersianCalendar;
 import ir.smartlab.persiandatepicker.util.PersianCalendarConstants;
 import ir.smartlab.persiandatepicker.util.PersianCalendarUtils;
+import ir.smartlab.persiandatepicker.util.TimeZones;
 
 public class PersianDatePicker extends LinearLayout {
 
@@ -30,6 +32,8 @@ public class PersianDatePicker extends LinearLayout {
 
     private boolean displayDescription;
     private TextView descriptionTextView;
+
+    private String timezone;
 
     public PersianDatePicker(Context context) {
         this(context, null, -1);
@@ -50,9 +54,18 @@ public class PersianDatePicker extends LinearLayout {
         dayNumberPicker = (NumberPicker) view.findViewById(R.id.dayNumberPicker);
         descriptionTextView = (TextView) view.findViewById(R.id.descriptionTextView);
 
-        PersianCalendar pCalendar = new PersianCalendar();
-
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.PersianDatePicker, 0, 0);
+
+        /*
+         * Set timezone
+         */
+        PersianCalendar pCalendar;
+        timezone = a.getString(R.styleable.PersianDatePicker_timezone);
+        if( timezone == null || timezone.isEmpty()) {
+            pCalendar = new PersianCalendar();
+        } else {
+            pCalendar = new PersianCalendar(TimeZone.getTimeZone(timezone));
+        }
 
         yearRange = a.getInteger(R.styleable.PersianDatePicker_yearRange, 10);
 
@@ -74,7 +87,7 @@ public class PersianDatePicker extends LinearLayout {
         yearNumberPicker.setOnValueChangedListener(dateChangeListener);
 
 		/*
-		 * initializng monthNumberPicker
+         * initializng monthNumberPicker
 		 */
         boolean displayMonthNames = a.getBoolean(R.styleable.PersianDatePicker_displayMonthNames, false);
         monthNumberPicker.setMinValue(1);
@@ -89,8 +102,10 @@ public class PersianDatePicker extends LinearLayout {
         monthNumberPicker.setValue(selectedMonth);
         monthNumberPicker.setOnValueChangedListener(dateChangeListener);
 
+
+
 		/*
-		 * initializiing dayNumberPicker
+         * initializiing dayNumberPicker
 		 */
         dayNumberPicker.setMinValue(1);
         dayNumberPicker.setMaxValue(31);
@@ -110,7 +125,7 @@ public class PersianDatePicker extends LinearLayout {
         }
         dayNumberPicker.setValue(selectedDay);
         dayNumberPicker.setOnValueChangedListener(dateChangeListener);
-		
+
 		/*
 		 * displayDescription
 		 */

@@ -154,6 +154,14 @@ public class PersianCalendar extends GregorianCalendar {
 	}
 
 	/**
+	 *
+	 * @param timezone
+     */
+	public PersianCalendar(TimeZone timezone) {
+		setTimeZone(timezone);
+	}
+
+	/**
 	 * Calculate persian date from current Date and populates the corresponding
 	 * fields(persianYear, persianMonth, persianDay)
 	 */
