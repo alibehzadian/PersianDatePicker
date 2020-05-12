@@ -2,6 +2,7 @@ package ir.smartlab.persiandatepicker;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Typeface;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -18,13 +19,14 @@ import ir.smartlab.persiandatepicker.util.PersianCalendar;
 import ir.smartlab.persiandatepicker.util.PersianCalendarConstants;
 import ir.smartlab.persiandatepicker.util.PersianCalendarUtils;
 import ir.smartlab.persiandatepicker.util.TimeZones;
+import ir.smartlab.persiandatepicker.util.TypeFaceChangeableNumberPicker;
 
 public class PersianDatePicker extends LinearLayout {
 
     private OnDateChangedListener mListener;
-    private NumberPicker yearNumberPicker;
-    private NumberPicker monthNumberPicker;
-    private NumberPicker dayNumberPicker;
+    private TypeFaceChangeableNumberPicker yearNumberPicker;
+    private TypeFaceChangeableNumberPicker monthNumberPicker;
+    private TypeFaceChangeableNumberPicker dayNumberPicker;
 
     private int minYear;
     private int maxYear;
@@ -49,9 +51,9 @@ public class PersianDatePicker extends LinearLayout {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View view = inflater.inflate(R.layout.sl_persian_date_picker, this);
-        yearNumberPicker = (NumberPicker) view.findViewById(R.id.yearNumberPicker);
-        monthNumberPicker = (NumberPicker) view.findViewById(R.id.monthNumberPicker);
-        dayNumberPicker = (NumberPicker) view.findViewById(R.id.dayNumberPicker);
+        yearNumberPicker = (TypeFaceChangeableNumberPicker) view.findViewById(R.id.yearNumberPicker);
+        monthNumberPicker = (TypeFaceChangeableNumberPicker) view.findViewById(R.id.monthNumberPicker);
+        dayNumberPicker = (TypeFaceChangeableNumberPicker) view.findViewById(R.id.dayNumberPicker);
         descriptionTextView = (TextView) view.findViewById(R.id.descriptionTextView);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.PersianDatePicker, 0, 0);
@@ -250,6 +252,12 @@ public class PersianDatePicker extends LinearLayout {
         yearNumberPicker.setValue(year);
         monthNumberPicker.setValue(month);
         dayNumberPicker.setValue(day);
+    }
+
+    public void setTypeface(Typeface typeface) {
+        dayNumberPicker.setTypeface(typeface);
+        monthNumberPicker.setTypeface(typeface);
+        yearNumberPicker.setTypeface(typeface);
     }
 
     @Override
